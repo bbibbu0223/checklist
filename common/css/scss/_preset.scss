@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'NSK';
+    font-weight: 400;
+    src: url("../font/NotoSansKR-Regular.woff2") format('woff2'),
+    url("../font/NotoSansKR-Regular.woff") format('woff'),
+    url("../font/NotoSansKR-Regular.otf") format('opentype');
+}
+@font-face {
+    font-family: "NSK";
+    font-weight: 700;
+    src: url("../font/NotoSansKR-Bold.woff2") format("woff2"),
+    url("../font/NotoSansKR-Bold.woff") format("woff"),
+    url("../font/NotoSansKR-Bold.otf") format("opentype");
+}
+
+body{
+    font-family: "NSK", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--b1);
+}
+
+@mixin scrollB {
+    &::-webkit-scrollbar {
+        overflow: overlay;
+        width: 18px;
+        height: 18px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: #5555556e;
+        border: 3px solid transparent;
+        border-radius: 18px;
+        background-clip: content-box;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: var(--m2);
+        border-radius: 18px;
+    }
+}
+
+@mixin scrollM {
+    &::-webkit-scrollbar {
+        overflow: overlay;
+        width: 4px;
+        height: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--m7);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background-clip: content-box;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: var(--b4);
+        border-radius: 10px;
+    }
+}
+
+@mixin scrollInM {
+    &::-webkit-scrollbar {
+        overflow: overlay;
+        width: 8px;
+        height: 8px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--m7);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background-clip: content-box;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 10px;
+    }
+}
+
+.scrollBasic {
+    @include scrollB();
+}
+    
+.scrollMemo {
+    @include scrollM();
+}
+    
+.scrollInMemo {
+    @include scrollInM();
+}
+    
+.wd50{
+    width: 50% !important;
+}
+    
+.conFlex{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+    
+.flex{
+    display: flex;
+}
+
+.hide {
+    visibility: hidden;
+}

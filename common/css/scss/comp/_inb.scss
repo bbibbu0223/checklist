@@ -1,0 +1,87 @@
+.inb {
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    padding: 12px 8px;
+    background: var(--m2);
+    width: 60px;
+    height: 100vh;
+    z-index: 10;
+
+    border-left: 1px solid var(--m7);
+
+    button {
+        background-color: #7284B2;
+        width: 32px;
+        height: 32px;
+        color: var(--b4);
+        border-radius: 6px;
+        font-size: 18px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--m1);
+            transition: .5s;
+        }
+    }
+
+    .click {
+        background-color: var(--m1);
+    }
+
+    // .subBtn1,
+    // .subBtn2{
+    //     display: none;
+
+    //     &.activeBtn{
+    //         display: block;
+    //     }
+    // }
+
+    .subBtn1 {
+        background-color: #05507D;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .subBtn2 {
+        background-color: #00B37B;
+
+        img {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .theme {
+        position: fixed;
+        bottom: 10px;
+
+        &::after {
+            content: url(/common/img/light.svg);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+
+    .line {
+        width: 32px;
+        height: 2px;
+        background-color: var(--m6);
+        margin: 4px;
+    }
+}

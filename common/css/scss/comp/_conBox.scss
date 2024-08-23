@@ -1,0 +1,253 @@
+body {
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-x: auto;
+    position: relative;
+}
+
+.conBox {
+    width: calc(100% - 60px);
+    height: calc(100vh - 60px);
+
+    background: var(--m2);
+    padding: 0 4px 0 16px;
+    overflow: overlay;
+    overflow-Y: scroll;
+    @include scrollB;
+    position: relative;
+
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        height: 60px;
+
+        &:hover {
+            background-color: var(--m3);
+            transition: .5s;
+            box-shadow: none;
+            border-radius: 10px;
+        }
+    }
+
+    .arcBox {
+        margin: 12px 0;
+        background-color: var(--b4);
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px 0px rgba(20, 52, 133, 0.10);
+        cursor: pointer;
+
+        li {
+            display: flex;
+            align-items: center;
+
+            input[type="checkbox"] {
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                border: 2px solid var(--b3);
+                appearance: none;
+                cursor: pointer;
+                transition: background 0.2s;
+
+                +label {
+                    margin: 0 14px;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+            }
+
+            input[type="checkbox"]:checked {
+                background: var(--m1);
+                border: none;
+
+                +label {
+                    text-decoration: line-through;
+                    color: var(--m7);
+                }
+
+                &:after {
+                    content: url(/common/img/check-solid.svg);
+                    width: 14px;
+                    height: 14px;
+
+                    display: block;
+                    position: relative;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        &.highlight {
+            background-color: var(--m3);
+        }
+
+        .handle {
+            width: 500px;
+            height: 60px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        //컨텐츠
+        .arcCon {
+            // display: none;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .3s ease-out;
+            background-color: var(--b4);
+            border-radius: 0 0 10px 10px;
+
+            .content {
+                // @include scrollT;
+                // overflow-Y: auto;
+                // max-height: 626px;
+                // overflow: overlay;
+                cursor: auto;
+
+                h3 {
+                    font-weight: 700;
+                    font-size: 18px;
+                    padding: 16px 16px 0 16px;
+                }
+
+                .exHead {
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: bold;
+                    background-color: #B7C5E7;
+                    margin: 0 16px;
+                    padding: 8px 12px;
+                    border-radius: 6px 6px 0 0;
+                }
+
+                .ex {
+                    background: var(--m5);
+                    height: auto;
+                    margin: 0 16px;
+                    padding: 8px 12px;
+                    border-radius: 0 0 6px 6px;
+                    border: 1px solid #B7C5E7;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        gap: 32px;
+                        padding: 12px;
+                    }
+                }
+
+                .box {
+                    background: var(--m5);
+                    height: auto;
+                    margin: 0 16px;
+                    padding: 14px 20px;
+                    border-radius: 6px;
+                    border: 1px solid #B7C5E7;
+
+                    h4 {
+                        font-weight: 700;
+                        font-size: 16px;
+                        padding: 8px 0;
+                    }
+                }
+
+                .conList {
+                    line-height: 1.5rem;
+                    padding: 16px;
+
+                    li {
+                        padding-left: 0px !important;
+                        text-indent: 12px;
+                        list-style: inside;
+                    }
+
+                    p {
+                        padding-left: 0px !important;
+                        text-indent: 22px;
+                        color: var(--m7);
+                        margin-bottom: 2px;
+                    }
+                }
+
+                .line {
+                    height: 1px;
+                    background-color: var(--b5);
+                    margin: 32px 16px;
+                }
+
+                .mt32 {
+                    margin-top: 32px;
+                }
+
+                .mb32 {
+                    margin-bottom: 32px;
+                }
+
+                .m16 {
+                    margin: 16px;
+                }
+
+                .mb16 {
+                    margin-bottom: 16px;
+                }
+
+                .ml16 {
+                    margin-left: 16px;
+                }
+
+                .mr16 {
+                    margin-right: 16px;
+                }
+
+                .mt16 {
+                    margin-top: 16px;
+                }
+
+                .mt8 {
+                    margin-top: 8px;
+                }
+
+                .noPad {
+                    padding: unset;
+                }
+
+                .noPadTop {
+                    padding-top: unset;
+                    padding-bottom: unset;
+                }
+            }
+
+
+            &.show {
+                max-height: 1400px;
+                // max-height: 100vh;
+                // display: block;
+            }
+        }
+    }
+}
+
+.fold {
+    color: var(--b3);
+    background: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--m1);
+        transition: .5s;
+    }
+
+    &.rotate {
+        transform: rotate(-180deg);
+        transition: .3s;
+    }
+}

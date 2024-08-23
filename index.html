@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표준화 검토 체크리스트</title>
+    
+    <!-- js -->
+    <script src="/common/js/include.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h2>👾표준화 검토 체크리스트</h2>
+    </div>
+
+    <article class="conFlex">
+        <div class="inb">
+            <button id="resetButton" class="refresh" title="초기화" onclick="resetCheckboxes()">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+            </button>
+
+            <button title="전체접기" class="foldAll"><i class="fa-solid fa-angles-up"></i></button>
+            <!-- <button class="dialBtn" title="가이드 목록"><i class="fa-solid fa-book-open"></i></button> -->
+
+            <button title="메모" class="memoBtn">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+
+            <div class="line"></div>
+
+            <button title="posco가이드 바로가기" class="subBtn1">
+                <a href="http://ux.posco.co.kr:7091/html/main.html?LANG=ko&TIMEZONE=+540&comp_cd=30&ptd="
+                    target="_blank"><img src="/common/img/p로고.png" /></a>
+            </button>
+
+            <button title="mes가이드 바로가기" class="subBtn2">
+                <a href="http://uxui00-com-p.apps.dpmes.posco.co.kr/common/uxui00-com-p/#all" target="_blank"><img
+                        src="/common/img/M로고.png" /></a>
+            </button>
+
+            <button class="theme" title="테마변경"></button>
+        </div>
+
+        <!-- 메모 -->
+        <!-- <div class="inOut">
+            <div class="memo scrollInMemo">
+                <div>
+                    <div class="memoBoard">
+                        <textarea class="memoCon" placeholder="메모를 입력해주세요." oninput="autoHeight(this)"></textarea>
+                        <div class="memoHead">
+                            <button class="del hide" title="메모삭제"><i class="fa-solid fa-xmark"></i></button>
+                            <button class="add" title="메모추가"><i class="fa-solid fa-circle-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="inOut">
+            
+            <div class="memo scrollInMemo">
+                <button id="addMemoButton"><i class="fa-solid fa-plus"></i></button>
+
+                <div id="memoContainer">
+                    <div class="memoBoard">
+                        <textarea class="memoCon" placeholder="메모를 입력해주세요." oninput="autoHeight(this)"></textarea>
+                        <div class="memoHead">
+                            <button class="del hide" title="메모삭제"><i class="fa-solid fa-xmark"></i></button>
+                            <button class="add" title="메모추가"><i class="fa-solid fa-circle-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 체크리스트 -->
+        <div class="conBox scrollBasic">
+
+            <!-- 버튼 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option1" id="option1">
+                        <label for="option1">버튼</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab1" style="margin-left: 16px;">정렬</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab2">통일</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab3">표기</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                           
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab1">
+                            <div class="content">
+                                <h3>그리드 버튼 정렬</h3>
+                                <ul class="conList">
+                                    <li>· 액션 기능 영역에는 테이블 내 데이터를 제어하는 추가, 삭제, 편집, 저장 등의 버튼을 배치하며 업무 우선도, CRUD순으로 테이블 좌측에서
+                                        우측으로 정렬 권장</li>
+                                    <li>· 옵션 기능 영역에는 새로고침, 인쇄, 검색, 보기옵션 등의 버튼을 배치하며 테이블 우측에서 좌측으로 정렬 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/btn1.png" alt="as-is_btn">
+                                        <img src="/common/img/btn2.png" alt="to-be_btn">
+                                        <img src="/common/img/btn3.png" alt="to-be_btn">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8">
+                                    <h4>그리드 버튼 정렬 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 버튼의 정렬 상태가 가이드에 맞춰 정렬되어 있는지 체크한다.</li>
+                                        <li>· 구분선을 통해 같은 역할끼리 분류되어 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">버튼 간격</h3>
+                                <ul class="conList">
+                                    <li>· 버튼과 버튼 간의 간격이 겹치지 않도록 일정한 간격으로 수정 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/btn4.png" alt="as-is_to-be">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>버튼 간격 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 버튼 간의 간격이 일정한지 체크한다.</li>
+                                        <li>· 각 버튼의 역할에 따라 간격을 통해 구분되어 지는지 체크한다. (필요시 구분선 사용)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab2">
+                            <div class="content">
+                                <h3>버튼 스타일 통일</h3>
+                                <ul class="conList">
+                                    <li>버튼의 스타일을 일관성 있도록 통일 권장(체크박스/액션버튼 등)</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/btn5.png" alt="btn_통일">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>버튼 스타일 통일 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 버튼 스타일이 통일되어 있는지 체크한다.</li>
+                                        <li>· 버튼의 형태가 각 기능 및 상황별로 알맞게 디자인 되어있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab3">
+                            <div class="content">
+                                <div class="m16">
+                                    내용 추가 예정
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 테이블 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option2" id="option2">
+                        <label for="option2">테이블</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab4" style="margin-left: 16px;">정렬</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab5">통일</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab4">
+                            <div class="content">
+                                <h3>데이터 정렬</h3>
+                                <ul class="conList">
+                                    <li>· 좌측 정렬 데이터 : 긴 서술형 정보로 구성된 문자/숫자</li>
+                                    <p>(예) 주소, 특이사항, 비고, TASK명 등</p>
+                                    <li>· 우측 정렬 데이터 : 수량/금액을 표현 하는 숫자 *자릿수 구분(,)표기 필수</li>
+                                    <p>(예) 순서(Seq), 출강목표번호, 날짜, 성명,규격약호, 행선, 설비구분 등</p>
+                                    <li>· 중앙 정렬 데이터 : 길이가 동일한 문자/숫자 또는 위 경우에 해당되지 않는 경우</li>
+                                    <p>(예) 순서(Seq), 출강목표번호, 날짜, 성명,규격약호, 행선, 설비구분 등</p>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/data1.png" alt="데이터 정렬">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>데이터 정렬 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 데이터가 각 성격에 따라 좌측/우측/중앙으로 맞게 정렬되어 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">데이터 잘림</h3>
+                                <ul class="conList">
+                                    <li>· 항목값의 데이터가 잘리지 않도록 아래와 같이 말줄임 표기 또는 항목 길이 수정 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/data2.png" alt="데이터 잘림">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>데이터 잘림 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 테이블 내 데이터가 잘리지 않고 모두 표기되는지 체크한다.</li>
+                                        <li>· 데이터가 잘리는 경우 말줄임 표기 또는 테이블 길이 수정 등 상황에 맞는 수정 방향을 제시한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab5">
+                            <div class="content">
+                                <h3>번호 표기 통일</h3>
+                                <ul class="conList">
+                                    <li>· 같은 의미를 가진 번호, Seq, No. 는 모두 '번호'로 통일하는 것을 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/data3.png" alt="번호 표기">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>번호 표기 통일 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 같은 의미를 가진 타이틀의 경우 표기법을 통일하고 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 조회영역 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option3" id="option3">
+                        <label for="option3">조회영역</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab6" style="margin-left: 16px;">정렬</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab7">버튼 </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                           
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab6">
+                            <div class="content">
+                                <h3>조회영역 정렬</h3>
+                                <ul class="conList">
+                                    <li>· 조회 영역 내 항목명은 좌측 정렬을 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/search1.png" alt="조회영역 정렬">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>조회영역 정렬 검토  사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 조회 영역 내 항목명이 좌측 정렬 상태인지 체크한다.</li>
+                                        <li>· 조회 영역 내 인풋 박스(입력창, 셀렉트 박스 등)끼리의 정렬 상태를 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab7">
+                            <div class="content">
+                                <h3>조회 버튼 위치 및 크기</h3>
+                                <ul class="conList">
+                                    <li>· 조회 버튼은 마지막 인풋 박스(입력창, 셀렉트박스 등) 뒤에 일관성 있는 위치를 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/search2.png" alt="조회버튼 위치 및 크기">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>조회 버튼 간격 위치 크기 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 조회 버튼의 위치가 마지막 인풋 박스 뒤에 위치하는지 체크한다.</li>
+                                        <li>· 조회 버튼의 크기가 가이드에 맞게 적용되어 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">조회 버튼 간격</h3>
+                                <ul class="conList">
+                                    <li>· 조회 버튼은 마지막 인풋 박스(입력창, 셀렉트박스 등) 뒤에 일관성 있는 위치를 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/search3.png" alt="조회버튼 간격">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>조회 버튼 간격 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 조회 버튼의 위치가 마지막 인풋 박스 뒤에 위치하는지 체크한다.</li>
+                                        <li>· 조회 버튼과 마지막 인풋 박스 사이의 간격이 일정한지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팝업/모달 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option4" id="option4">
+                        <label for="option4">팝업/대화상자</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab8" style="margin-left: 16px;">통일</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab8">
+                            <div class="content">
+                                <h3>팝업 스타일 통일</h3>
+                                <ul class="conList">
+                                    <li>· 팝업 스타일을 표준 가이드에 따라 팝업 타이틀, 컨텐츠, 버튼 영역으로 일관성 있게 구성하는 것을 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/popup1.png" alt="팝업 스타일">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>팝업 스타일</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 팝업 상단 헤더 부분의 타이틀과 닫기 버튼의 유무를 체크한다.</li>
+                                        <li>· 컨텐츠 영역의 여백이 동일하게 제작되었는지 체크한다.</li>
+                                        <li>· 버튼의 정렬이 가운데 정렬인지 체크한다.</li>
+                                        <li>· 각 팝업에 따라 알맞은 기능 및 형태의 버튼을 제공하는지 체크한다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">안내 대화상자 스타일 통일</h3>
+                                <ul class="conList">
+                                    <li>· 안내 대화상자는 브라우저의 Alert 대화상자를 사용하는 것을 원칙으로 함</li>
+                                    <li>· 직접 제작할 경우 동일한 시스템 안에서 안내 대화상자 스타일을 일관성 있게 통일 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/popup2.png" alt="안내 대화상자 스타일">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>안내 대화상자 스타일 통일 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 대화상자에 사용된 버튼 및 아이콘의 스타일이 일관성 있는지 체크한다.</li>
+                                        <li>· 대화상자에 사용된 어투가 일관성 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 용어표준 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option5" id="option5">
+                        <label for="option5">용어표준</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab9" style="margin-left: 16px;">표기</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab10">통일 </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab9">
+                            <div class="content">
+                                <h3>외래어 표기</h3>
+                                <ul class="conList">
+                                    <li>· 한글 표기를 기본으로 하며 외래어 고유명사의 경우 한글로 표기. (의미 전달상 필요한 경우에만 외래어 사용)</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/label.png" alt="외래어 표기">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>외래어 표기 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 외래어 표기의 경우 의미 전달 상 필요한 경우인지 체크한다.</li>
+                                                                               
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">날짜 표기</h3>
+                                <ul class="conList">
+                                    <li>· 시스템의 분산된 표기방법을 일관성 있도록 YYYY.MM.DD로 통일하여 사용하는 것을 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/date.png" alt="날짜 표기">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>날짜 표기 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 가이드에 맞게 표기되어있는지 체크한다.</li>
+                                        <li>· 하나의 시스템 안에서 여러 스타일로 혼용되고 있진 않은지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab10">
+                            <div class="content">
+                                <h3>화면명 통일</h3>
+                                <ul class="conList">
+                                    <li>· 화면명 및 탭명의 경우 동일한 명칭 사용을 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/label2.png" alt="화면명 통일">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>화면명 통일 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 화면명과 탭명의 명칭이 동일하게 사용되었는지 체크한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UI 통일 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option6" id="option6">
+                        <label for="option6">UI 통일</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab1" style="margin-left: 16px;">정렬</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab2">통일</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab3">표기</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab1">
+                            <div class="content">
+                                <div class="m16">
+                                    내용 추가 예정
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab2">
+                            <div class="content">
+                                <div class="m16">
+                                    내용 추가 예정
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab3">
+                            <div class="content">
+                                <div class="m16">
+                                    내용 추가 예정
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 공통요소 -->
+            <div class="arcBox">
+                <div class="flex">
+                    <li>
+                        <input type="checkbox" name="option7" id="option7">
+                        <label for="option7">공통요소</label>
+                    </li>
+                    <button class="handle"></button>
+                    <button class="fold"><i class="fa-solid fa-angle-down"></i></button>
+                </div>
+
+                <div class="arcCon">
+                    <div class="innerTabMenu">
+                        <ul>
+                            <li class="active-a">
+                                <a href="#" class="tab-a" data-id="tab1" style="margin-left: 16px;">여백</a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-a" data-id="tab2">오류</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- tabContents -->
+                    <div class="tabContainer">
+                        <div class="tab tab-active" data-id="tab1">
+                            <div class="content">
+                                <h3>불필요 여백</h3>
+                                <ul class="conList">
+                                    <li>· 불필요한 여백이 발생되지 않도록 수정 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/padding1.png" alt="불필요 여백">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>불필요 여백 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 테이블, 조회 영역 등 모두 컨텐츠 내에서 불필요한 여백이 있진 않은지 체크한다.</li>
+                                        <li>· 불필요한 여백이 발생했을 경우 컨텐츠 간의 간격, 위치 등을 조절하여 수정한다. </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab" data-id="tab2">
+                            <div class="content">
+                                <h3>데이터가 없는 경우</h3>
+                                <ul class="conList">
+                                    <li>· 데이터가 없거나 조회된 결과가 없는 경우 공백이 아닌 이해를 도울 수 있는 안내문구 표기를 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/error1.png" alt="데이터가 없는 경우">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>안내문구 표기 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 데이터가 없거나 조회된 결과가 없는 경우 안내문구를 표기하고 있는지 체크한다.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <h3 class="noPadTop">컨텐츠 겹침</h3>
+                                <ul class="conList">
+                                    <li>· 컨텐츠 간 겹치는 현상이 발생하지 않도록 수정 권장</li>
+                                </ul>
+
+                                <div class="exHead">구성 예시 이미지</div>
+                                <div class="ex">
+                                    <div>
+                                        <img src="/common/img/content.png" alt="컨텐츠 겹침">
+                                    </div>
+                                </div>
+
+                                <div class="box mt8 mb16">
+                                    <h4>컨텐츠 겹침 검토 사항</h4>
+                                    <ul class="conList noPad">
+                                        <li>· 컨텐츠 간 겹치는 현상이 발생하진 않는지 체크한다.</li>
+                                        <li>· 겹치는 현상이 발생할 경우 위치 및 간격 등을 조절하여 겹치는 현상이 없도록 수정한다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+
+</html>
